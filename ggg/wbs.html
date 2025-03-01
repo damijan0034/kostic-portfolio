@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bogdan Kostic - Premium Graphic Designer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Bogdan Kostic</h1>
+      <h2>Graphic Designer | Visual Artist</h2>
+      <p class="hero-description">Designs that inspire, brands that shine.</p>
+      <a href="#portfolio" class="cta-button">Explore My Work</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>I’m a graphic designer with over 3 years of experience creating visually captivating designs for high-end brands, businesses, and individuals. I craft unique, **innovative** designs with attention to every detail.</p>
+  </section>
+
+  <!-- Portfolio Section (No Images, Text Only) -->
+  <section id="portfolio" class="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-container">
+      <div class="portfolio-item">
+        <h3>Branding Project</h3>
+      </div>
+      <div class="portfolio-item">
+        <h3>Website Design</h3>
+      </div>
+      <div class="portfolio-item">
+        <h3>Packaging Design</h3>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="contact" class="contact">
+    <h2>Get in Touch</h2>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <h2>What Clients Say</h2>
+    <div class="testimonials-container">
+      <div class="testimonial">
+        <p>"Bogdan transformed our brand's image. His designs are extraordinary!"</p>
+        <p>- Client Name, Company</p>
+      </div>
+      <div class="testimonial">
+        <p>"A visionary! Working with Bogdan has taken our project to new heights."</p>
+        <p>- Client Name, Company</p>
+        
+    </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Get in Touch</h2>
+    <p>If you're ready to create something amazing, let's chat.</p>
+    <p>Alternatively, you can email me directly at <a href="mailto:damijan0034@gmailcom">damijan0034@gmail.com</a></p>
+    <!-- Contact Form (EmailJS integration) -->
+    <form id="contact-form">
+      <input type="email" id="user_email" name="user_email" placeholder=" Email" required>
+      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="cta-button">Send Message</button>
+    </form>
+    
+  
+
+  <!-- Footer Section -->
+
+
+  <footer class="footer">
+    <p>&copy; 2025 Bogdan Kostic. All Rights Reserved.</p>
+    
+  
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    // Initialize EmailJS with your public key
+    (function() {
+      emailjs.init("9-iHv13WJAxHMu7tQ"); // Replace with your actual public key
+    })();
+
+    // Handle form submission
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form from submitting normally
+
+      // Send the email using EmailJS
+      emailjs.sendForm("service_w3pg3db", "template_p0z8so4", this)
+        .then(function(response) {
+          alert("Email sent successfully!");
+          document.getElementById("contact-form").reset(); // Reset the form after submission
+        }, function(error) {
+          alert("Error sending email: " + error.text);
+        });
+    });
+  </script>
+</body>
+</html>
+
+
+
