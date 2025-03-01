@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>your Email</title>
+  <style>
+    /* General page styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      font-size: 3em;
+    }
+
+    /* Form styling */
+    #email-form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    input[type="email"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      font-size: 1em;
+      box-sizing: border-box;
+      animation: fadeOut;
+    }
+
+    input[type="email"]:focus, textarea:focus {
+      border-color: #007BFF;
+      outline: none;
+      
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background-color 1s ease;
+    }
+
+    button:hover {
+      background-color: black;
+      
+    }
+    textarea {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    
+
+  </style>
+</head>
+<body>
+
+  <div id="form-container">
+    <h2>Contact Us</h2>
+    <form id="email-form">
+      <input type="email" name="user_email" placeholder="Your email" required><br>
+      <textarea name="message" placeholder="Your message" required></textarea><br>
+      <button type="submit">Send Email</button>
+    </form>
+  </div>
+
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript">
+    // Initialize EmailJS with your public key
+    (function() {
+      emailjs.init("9-iHv13WJAxHMu7tQ");  // Replace with your actual public key
+    })();
+
+    // Handle form submission
+    document.getElementById("email-form").addEventListener("submit", function(event) {
+      event.preventDefault();  // Prevent default form submission
+
+      // Send the email using EmailJS
+      emailjs.sendForm("service_w3pg3db", "template_p0z8so4", this)
+        .then(function(response) {
+          alert("Email sent successfully!");
+          // Apply the fade effect to the content of the fields (email and message)
+          let emailField = document.querySelector('input[name="user_email"]');
+          let messageField = document.querySelector('textarea[name="message"]');
+
+          // Fade out the content inside the fields
+          emailField.classList.add('fade-text');
+          messageField.classList.add('fade-text');
+
+          // Optionally, you can clear the text after fading out
+          setTimeout(function() {
+            emailField.value = '';  // Clear email field
+            messageField.value = '';  // Clear message field
+          }, 1000);  // Wait for the fade-out animation to complete (1 second)
+        }, function(error) {
+          alert("Error sending email: " + error.text);
+        });
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+  
+
+
+
